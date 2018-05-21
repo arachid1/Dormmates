@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Login</title>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'accounts/style.css' %}" type="text/css" />
+
+   </head>
+   <body>
+
+      <div class="container">
+         <h1>Welcome</h1>
+         Welcome! You can login here!
+         <button class="btn btn-default" type="button" name="button">Login</button>
+      </div>
+
+      <h1>{{ name }}</h1>
+
+      <ul>
+         {% for num in numbers %}
+         <li>
+            {{ num }}
+         </li>
+         {% endfor %}
+
+
+      </ul>
+
+   </body>
+</html>
