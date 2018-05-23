@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'Roomies.middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'Roomies.urls'
@@ -120,4 +121,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+LOGIN_URL = '/account/login/'
+
 LOGIN_REDIRECT_URL = '/account/'
+
+
+LOGIN_EXEMPT_URLS = (
+    'account/logout/',
+    'account/register/'
+)
+
+EMAIL_HOST = 'localhost'
+#example email port with debugging
+EMAIL_PORT = 1025
