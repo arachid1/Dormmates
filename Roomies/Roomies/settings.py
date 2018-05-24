@@ -128,7 +128,11 @@ LOGIN_REDIRECT_URL = '/account/'
 
 LOGIN_EXEMPT_URLS = (
     'account/logout/',
-    'account/register/'
+    'account/register/',
+    'account/reset-password/',
+    'account/reset-password/done/',
+    r'^reset-password/confirm/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$',
+    'reset-password/complete/',
 )
 
 EMAIL_HOST = 'localhost'

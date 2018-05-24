@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from accounts.forms import (
     RegistrationForm,
     EditProfileForm,
@@ -21,12 +22,12 @@ def register(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/account')
+            return redirect(reverse('accounts:home'))
     else:
         form = RegistrationForm()
 
-        args = {'form': form}
-        return render(request, 'accounts/reg_form.html', args)
+    args = {'form': form}
+    return render(request, 'accounts/reg_form.html', args)
 
 def view_profile(request):
     args = {'user': request.user}
@@ -49,9 +50,9 @@ def change_password(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
-            return redirect('/account/profile')
+            return redirect(reverse('accounts:view_profile'))
         else:
-            return redirect('/account/change-password')
+            return redirect(reverse('accounts:change_password'))
     else:
         form = PasswordChangeForm(user=request.user)
         args = {'form': form}
