@@ -122,3 +122,16 @@ def change_friends(request, operation, pk):
         Friend.lose_friend(request.user, friend)
 
     return redirect('home:home')
+
+def view_profile_form(request, pk=None):
+    if pk:
+        user = User.objects.get(pk=pk)
+    else:
+        user = request.user
+
+    application = Application.objects.filter(user=user)[:1]
+    args = {
+        'user': user, 'bedtime': application,
+        'graduating_class': application, 'major': application
+    }
+    return render(request, 'home/questions.html', args)

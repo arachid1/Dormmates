@@ -21,3 +21,4 @@ class ApplicationForm(forms.ModelForm):
         model = Post
         fields = ('first_name', 'last_name', 'email', 'bedtime', 'graduating_class', 'major')
         model = Application
+        

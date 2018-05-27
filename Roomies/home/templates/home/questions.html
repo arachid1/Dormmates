@@ -20,6 +20,10 @@
       <h2>
          Thank you for submitting the roommate finding questionnaire!
       </h2>
+      First name: {{user.first_name}}
+      <br />
+      Last name: {{user.last_name}}
+      <br />
       {% for apps in bedtime %}
          Bedtime: {{ apps.bedtime }}
       {% endfor %}
@@ -31,6 +35,7 @@
       {% for apps in major %}
          Major: {{apps.major}}
       {% endfor %}
+      <br />
 
    {% endif %}
 </div>
