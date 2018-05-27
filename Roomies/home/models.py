@@ -25,3 +25,12 @@ class Friend(models.Model):
             current_user = current_user
         )
         friend.users.remove(new_friend)
+
+class Application(models.Model):
+    first_name = models.CharField(max_length=50, default='-')
+    last_name = models.CharField(max_length=50, default='-')
+    email = models.EmailField(max_length=50, default='-')
+    bedtime = models.CharField(max_length=50, default='-')
+    graduating_class = models.CharField(max_length=50, default='NA')
+    major = models.CharField(max_length=50)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)

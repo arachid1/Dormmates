@@ -3,7 +3,7 @@ from accounts.models import UserProfile
 
 #how to add columns in admin page, from tutorial 38
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ('user', 'user_info', 'city', 'website', 'phone')
+    list_display = ('user',)
 
     def user_info(self, obj):
         return obj.description

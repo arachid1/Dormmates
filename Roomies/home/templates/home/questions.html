@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+   {% if form != form_filled %}
+
+   <div class="col-md-8">
+      <h2>Roommate Questionnaire</h2>
+      <form method="post">
+         {% csrf_token %}
+         {{ form.as_p }}
+         <br />
+         <button type="submit">Submit</button>
+      </form>
+   </div>
+   {% endif %}
+
+   {% if form == form_filled %}
+   <br />
+      <h2>
+         Thank you for submitting the roommate finding questionnaire!
+      </h2>
+      {% for apps in bedtime %}
+         Bedtime: {{ apps.bedtime }}
+      {% endfor %}
+      <br />
+      {% for apps in graduating_class %}
+         Graduating Class: {{apps.graduating_class}}
+      {% endfor %}
+      <br />
+      {% for apps in major %}
+         Major: {{apps.major}}
+      {% endfor %}
+
+   {% endif %}
+</div>
+{% endblock %}

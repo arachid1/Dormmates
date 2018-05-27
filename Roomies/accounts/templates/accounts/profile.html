@@ -16,6 +16,7 @@
    <p>
       Last name: {{ user.last_name }}
    </p>
+   <!--
    <p>
       Email: {{ user.email }}
    </p>
@@ -27,11 +28,12 @@
    </p>
    <p>
       City: {{user.userprofile.city}}
-   </p>
+   </p>-->
    <p>
       <!-- user.userprofile.'model name' -->
-      Website: {{user.userprofile.website}}
+      <!--Website: {{user.userprofile.website}}-->
    </p>
+
    {% if user.userprofile.image %}
    <img src="{{ user.userprofile.image.url }}" width="240" />
    {% endif %}
