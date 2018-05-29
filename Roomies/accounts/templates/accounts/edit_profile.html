@@ -9,12 +9,13 @@
    <form method="post">
       {% csrf_token %}
 
-      <h4>First name: {{ form.first_name }}</h4>
-      <br />
-      <h4>Last name: {{ form.last_name }}</h4>
-      <br />
-      <h4>Email: {{ form.email }}</h4>
-      <br />
+      <p>First name: {{ form.first_name }}</p>
+      <p>Last name: {{ form.last_name }}</p>
+
+      <p>Email: {{ form.email }}</p>
+      <p>
+         Profile Picture: {{ form2.profile_pic }}
+      </p>
       <button type="submit">Submit</button>
    </form>
 </div>

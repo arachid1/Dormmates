@@ -33,10 +33,10 @@
       <!-- user.userprofile.'model name' -->
       <!--Website: {{user.userprofile.website}}-->
    </p>
+   <p>
+      <img src="{{ user.userprofile.profile_pic.url }}" width="240" />
+   </p>
 
-   {% if user.userprofile.image %}
-   <img src="{{ user.userprofile.image.url }}" width="240" />
-   {% endif %}
 </div>
 
 
