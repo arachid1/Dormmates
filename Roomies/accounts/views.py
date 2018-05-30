@@ -4,6 +4,7 @@ from accounts.forms import (
     RegistrationForm,
     EditProfileForm,
 )
+from home.models import Application
 from home.forms import ApplicationForm
 from accounts.forms import RegistrationForm
 from django.contrib.auth.models import User
@@ -13,7 +14,7 @@ from django.contrib.auth.decorators import login_required
 
 def register(request):
     if request.method == 'POST':
-        form = RegistrationForm(request.POST, files=request.FILES)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect(reverse('accounts:home'))
@@ -28,7 +29,9 @@ def view_profile(request, pk=None):
         user = User.objects.get(pk=pk)
     else:
         user = request.user
-    args = {'user': user}
+    application = Application.objects.filter(user=user)[:1]
+
+    args = {'user': user, 'profile_pic': application}
     return render(request, 'accounts/profile.html', args)
 
 #TODO can't figure out how to change profile image!!!

@@ -34,8 +34,9 @@
       <!--Website: {{user.userprofile.website}}-->
    </p>
    <p>
-      <img src="{{ user.userprofile.profile_pic.url }}" width="240" />
-   </p>
+      {% for apps in profile_pic %}
+         <img src="{{apps.profile_pic.url}}" width=240/>
+      {% endfor %}   </p>
 
 </div>
 

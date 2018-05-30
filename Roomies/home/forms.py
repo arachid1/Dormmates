@@ -15,11 +15,12 @@ class ApplicationForm(forms.ModelForm):
     bedtime = forms.CharField(label="What time do you sleep")
     graduating_class = forms.ChoiceField(label='Graduating Class', choices=(('NA','NA'),('2018','2018'), ('2019','2019'), ('2020','2020'), ('2021+','2021+')))
     major = forms.CharField(label='Primary Major')
+    profile_pic = forms.ImageField(label='Upload profile picture')
 
 
     class Meta:
         model = Post
         fields = (
-            'first_name', 'last_name', 'email', 'bedtime', 'graduating_class', 'major'
+            'first_name', 'last_name', 'email', 'bedtime', 'graduating_class', 'major', 'profile_pic'
         )
         model = Application

@@ -36,7 +36,7 @@ class ApplicationView(TemplateView):
                 # })
                 args = {
                     'form': None, 'users': users, 'friends': friends, 'bedtime': application,
-                    'graduating_class': application, 'major': application
+                    'graduating_class': application, 'major': application, 'profile_pic': application
                 }
                 return render(request, self.template_name, args)
                 #return render(request, self.template_name, {'form': form_filled, 'users': users, 'friends': friends})
@@ -100,6 +100,8 @@ class HomeView(TemplateView):
 
     def get(self, request):
         users = User.objects.exclude(id=request.user.id)
+        applications = Application.objects.exclude(id=request.user.id)
+
         try:
             friend = Friend.objects.get(current_user=request.user)
             friends = friend.users.all()
@@ -107,7 +109,7 @@ class HomeView(TemplateView):
             friends = None
 
         args = {
-            'users': users, 'friends': friends
+            'users': users, 'friends': friends, 'profile_pic': applications
         }
 
         return render(request, self.template_name, args)

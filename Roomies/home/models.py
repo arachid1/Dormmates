@@ -34,3 +34,4 @@ class Application(models.Model):
     graduating_class = models.CharField(max_length=50, default='NA')
     major = models.CharField(max_length=50)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    profile_pic = models.ImageField(upload_to='profile_image')

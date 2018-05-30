@@ -6,7 +6,7 @@
 
    <div class="col-md-8">
       <h2>Roommate Questionnaire</h2>
-      <form method="post">
+      <form method="post" enctype="multipart/form-data">
          {% csrf_token %}
          {{ form.as_p }}
          <br />
@@ -36,7 +36,9 @@
          Major: {{apps.major}}
       {% endfor %}
       <br />
-
+      {% for apps in profile_pic %}
+         <img src="{{apps.profile_pic.url}}" width=240/>
+      {% endfor %}
    {% endif %}
 </div>
 {% endblock %}
