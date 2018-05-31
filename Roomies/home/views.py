@@ -114,7 +114,24 @@ class HomeView(TemplateView):
 
         return render(request, self.template_name, args)
 
+class FavView(TemplateView):
+    template_name = 'home/favorites.html'
 
+    def get(self, request):
+        users = User.objects.exclude(id=request.user.id)
+        applications = Application.objects.exclude(id=request.user.id)
+
+        try:
+            friend = Friend.objects.get(current_user=request.user)
+            friends = friend.users.all()
+        except Friend.DoesNotExist:
+            friends = None
+
+        args = {
+            'users': users, 'friends': friends, 'profile_pic': applications
+        }
+
+        return render(request, self.template_name, args)
 
 def change_friends(request, operation, pk):
     friend = User.objects.get(pk=pk)

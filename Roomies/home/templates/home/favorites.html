@@ -8,29 +8,21 @@
       may become an issue with performance. Referenced in tutorial 59-->
 
    <div class="col-md-6">
-      <h2>Other People</h2>
-      {% for user in users %}
-         <!-- change view_profile_with_pk to someting else if we want to
-         redirect somewhere else after clicking on other profiles-->
+      <h2>Favorites</h2>
+      {% for friend in friends %}
          <a href="{% url 'accounts:view_profile_with_pk' pk=user.pk %}">
             {% for apps in profile_pic %}
-               {% if user == apps.user %}
+               {% if friend == apps.user %}
                <img src="{{apps.profile_pic.url}}" width=240/>
                {% endif %}
             {% endfor %}
-            <h3>{{ user.username }}</h3>
+            <h3>{{ friend.username }}</h3>
          </a>
-         {% if not user in friends %}
-         <a href="{% url 'home:change_friends' operation='add' pk=user.pk %}">
-            <button type="button" class="btn btn-success">Add</button>
+         <a href="{% url 'home:change_friends' operation='remove' pk=friend.pk %}">
+            <button type="button" class="btn btn-default">Remove</button>
          </a>
-         <br />
-         <br />
-         <br />
-         <br />
-
-         {% endif %}
       {% endfor %}
+   </div>
 
 </div>
 {% endblock %}
