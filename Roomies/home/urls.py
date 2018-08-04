@@ -1,10 +1,11 @@
 from django.urls import path, include, re_path
-from home.views import HomeView, ApplicationView, FavView
+from home.views import HomeView, ApplicationView, FavView#, MessagesView
 from . import views
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('favorites/', FavView.as_view(), name='favorites'),
+    #path('messages/', MessagesView.as_view(), name = 'Messages'),
     path('questions/', ApplicationView.as_view(), name='questions'),
     re_path(r'^connect/(?P<operation>.+)/(?P<pk>\d+)/', views.change_friends,
     name='change_friends'),

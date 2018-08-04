@@ -9,4 +9,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include(('accounts.urls', 'accounts'), namespace='accounts')),
     path('home/', include(('home.urls', 'home'), namespace='home')),
+    path('django_messages/', include(('django_messages.urls', 'django_messages'), namespace='django_messages')),
+    path('compose/', include(('django_messages.urls', 'django_messages'), namespace='django_messages')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

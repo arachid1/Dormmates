@@ -35,3 +35,15 @@ class Application(models.Model):
     major = models.CharField(max_length=50)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     profile_pic = models.ImageField(upload_to='profile_image')
+
+'''class Message(models.Model):
+    current_user = models.ForeignKey(User, related_name='messager', null=True, on_delete=models.CASCADE)
+    description = models.CharField(max_length=20, default='-')
+    content = models.CharField(max_length=500, default='-')
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    @classmethod
+    def add_message(cls, current_user, new_message):
+        mes
+'''

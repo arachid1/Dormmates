@@ -154,3 +154,11 @@ def view_profile_form(request, pk=None):
         'graduating_class': application, 'major': application
     }
     return render(request, 'home/questions.html', args)
+
+'''
+class MessagesView(TemplateView):
+    template_name = 'home/messages.html'
+    def get(self, request):
+        messages = Messages.objects.get(current_user=request.user)
+        return render(request, self.template_name)
+'''
